@@ -1,7 +1,11 @@
+package Milestone2;
+
 import java.util.Scanner;
-public class Cotxes extends Vehicle{
+
+public class Camions extends Vehicle {
+
 	Scanner scn = new Scanner(System.in);
-	protected final int RODES_DEF=4;
+	protected final int RODES_DEF = 8;
 	protected String matricula;
 	protected String marca;
 	protected String color;
@@ -9,10 +13,10 @@ public class Cotxes extends Vehicle{
 	protected String marcaRodesTraseres;
 	protected double diamRodesDelanteres;
 	protected double diamRodesTraseres;
-	
-	public Cotxes(String matricula, String marca, String color) {
+
+	public Camions(String matricula, String marca, String color) {
 		super();
-		this.rodes=RODES_DEF;
+		this.rodes = RODES_DEF;
 		this.matricula = matricula;
 		this.marca = marca;
 		this.color = color;
@@ -61,7 +65,7 @@ public class Cotxes extends Vehicle{
 	public void setMarcaRodesTraseres(String marcaRodesTraseres) {
 		this.marcaRodesTraseres = marcaRodesTraseres;
 	}
-	
+
 	public double getDiamRodesDelanteres() {
 		return diamRodesDelanteres;
 	}
@@ -78,43 +82,39 @@ public class Cotxes extends Vehicle{
 		this.diamRodesTraseres = diamRodesTraseres;
 	}
 
-	
-	
-	
 	@Override
 	public String toString() {
-		return "Cotxes [matricula=" + matricula + ", marca=" + marca + ", color=" + color + ", marcaRodesDelanteres="
-				+ marcaRodesDelanteres + ", marcaRodesTraseres=" + marcaRodesTraseres + ", diamRodesDelanteres="
-				+ diamRodesDelanteres + ", diamRodesTraseres=" + diamRodesTraseres + "]";
+		return "Camions [RODES_DEF=" + RODES_DEF + ", matricula=" + matricula + ", marca=" + marca + ", color=" + color
+				+ ", marcaRodesDelanteres=" + marcaRodesDelanteres + ", marcaRodesTraseres=" + marcaRodesTraseres
+				+ ", diamRodesDelanteres=" + diamRodesDelanteres + ", diamRodesTraseres=" + diamRodesTraseres + "]";
 	}
 
 	public void marcaRodes() {
-		double diamRodesTras=0.1;
-		
-		System.out.println("Marca de les dues rodes delanteres: ");
-		String marcaRodesDel=scn.next();
-		System.out.println("Diametre de les dues rodes delanteres: ");
-		String aa=scn.next();
-		Double DiamRodesDel=Double.parseDouble(aa);
-		
-		
+		double diamRodesTras = 0.1;
+
+		System.out.println("Marca de les rodes delanteres: ");
+		String marcaRodesDel = scn.next();
+		System.out.println("Diametre de les rodes delanteres: ");
+		String aa = scn.next();
+		Double DiamRodesDel = Double.parseDouble(aa);
+
 		while (!comprobarDiametre(DiamRodesDel)) {
 			System.out.println("El diametre ha de estar entre 0.4 i 4");
-			aa=scn.next();
-			DiamRodesDel=Double.parseDouble(aa);
-			
+			aa = scn.next();
+			DiamRodesDel = Double.parseDouble(aa);
+
 		}
-		
-		System.out.println("Marca de les dues rodes traseres: ");
-		String marcaRodesTras=scn.next();
-		System.out.println("Diametre de les dues rodes traseres: ");
-		aa=scn.next();
-		diamRodesTras=Double.parseDouble(aa);
+
+		System.out.println("Marca de les rodes traseres: ");
+		String marcaRodesTras = scn.next();
+		System.out.println("Diametre de les rodes traseres: ");
+		aa = scn.next();
+		diamRodesTras = Double.parseDouble(aa);
 		while (!comprobarDiametre(diamRodesTras)) {
 			System.out.println("El diametre ha de estar entre 0.4 i 4");
-			aa=scn.next();
-			diamRodesTras=Double.parseDouble(aa);
-			
+			aa = scn.next();
+			diamRodesTras = Double.parseDouble(aa);
+
 		}
 
 		this.setMarcaRodesDelanteres(marcaRodesDel);
@@ -123,16 +123,5 @@ public class Cotxes extends Vehicle{
 		this.setDiamRodesTraseres(diamRodesTras);
 
 	}
-	
-	public boolean comprobarDiametre(double diametre) {
-		boolean ok=false;
-		if (diametre<=4.0 && diametre>=0.4) {
-			ok=true;
-		}
-		return ok;
-	}
 
-	
-	
-	
 }
